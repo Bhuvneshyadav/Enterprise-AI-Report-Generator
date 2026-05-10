@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+langchain
+langchain-ollama
+qdrant-client
+sqlalchemy
+pymysql
+python-dotenv
+pydantic
+reportlab
+pandas
+matplotlib
+redis
+python-multipart
+pydantic-settings

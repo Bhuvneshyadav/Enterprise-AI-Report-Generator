@@ -1,0 +1,20 @@
+[
+    {
+        "table": "sales",
+        "description": "Stores sales transactions",
+        "columns": {
+            "region": "Sales region",
+            "product": "Product name",
+            "revenue": "Revenue amount",
+            "sale_date": "Date of sale"
+        }
+    },
+    {
+        "table": "employees",
+        "description": "Employee records",
+        "columns": {
+            "department": "Employee department",
+            "salary": "Employee salary"
+        }
+    }
+]

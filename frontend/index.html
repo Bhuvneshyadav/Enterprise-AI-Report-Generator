@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise AI Report Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="sidebar" aria-label="Report workflow">
+          <div class="brand">
+            <div class="brand-mark">AI</div>
+            <div>
+              <p class="eyebrow">Enterprise</p>
+              <h1>AI Data Assistant</h1>
+            </div>
+          </div>
+
+          <div class="status-list">
+            <div class="status-item active">
+              <span>1</span>
+              <p>Ask a business question</p>
+            </div>
+            <div class="status-item">
+              <span>2</span>
+              <p>Retrieve schema with RAG</p>
+            </div>
+            <div class="status-item">
+              <span>3</span>
+              <p>Answer or prepare SQL</p>
+            </div>
+            <div class="status-item">
+              <span>4</span>
+              <p>Create PDF on request</p>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <p class="card-label">Local stack</p>
+            <dl>
+              <div><dt>LLM</dt><dd>Ollama</dd></div>
+              <div><dt>Vector DB</dt><dd>Qdrant</dd></div>
+              <div><dt>SQL DB</dt><dd>MySQL</dd></div>
+            </dl>
+          </div>
+        </aside>
+
+        <section class="panel" aria-label="Enterprise AI chat">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Chat with your enterprise data</p>
+              <h2>Ask questions, generate reports only when needed</h2>
+            </div>
+            <div id="connectionState" class="pill">Ready</div>
+          </div>
+
+          <section id="chatMessages" class="chat-messages" aria-live="polite">
+            <article class="message assistant">
+              <p>Ask me about available tables, revenue, employees, or possible reports. I will only create a PDF when you explicitly ask for a report or PDF.</p>
+            </article>
+          </section>
+
+          <form id="chatForm" class="query-form">
+            <label for="question">Message</label>
+            <textarea
+              id="question"
+              name="question"
+              rows="3"
+              placeholder="Example: What data can I ask about?"
+              required
+            ></textarea>
+            <div class="actions">
+              <button id="sendButton" type="submit">
+                <span class="button-icon">></span>
+                Send
+              </button>
+              <button id="sampleButton" type="button" class="secondary">
+                Sample question
+              </button>
+              <button id="reportSampleButton" type="button" class="secondary">
+                Sample report
+              </button>
+            </div>
+          </form>
+
+          <div id="alert" class="alert hidden"></div>
+
+          <section id="result" class="result hidden" aria-live="polite">
+            <div class="result-header">
+              <div>
+                <p class="eyebrow">Generated SQL</p>
+                <h3>Query preview</h3>
+              </div>
+              <a id="downloadLink" class="download-link" href="#" target="_blank" rel="noreferrer">
+                Open PDF
+              </a>
+            </div>
+            <pre><code id="sqlOutput"></code></pre>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
